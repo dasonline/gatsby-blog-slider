@@ -1,10 +1,11 @@
 import React from 'react';
-import { graphql } from 'gatsby';
+import { graphql, useStaticQuery } from 'gatsby';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import styled from '@emotion/styled';
 import { Header, PostList } from 'components';
-import { Layout } from 'layouts';
+import { Layout2 } from 'layouts';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const PostWrapper = styled.div`
   display: flex;
@@ -23,26 +24,13 @@ const PostWrapper = styled.div`
 const Index = ({ data }) => {
   const { edges } = data.allMarkdownRemark;
   return (
-    <Layout>
+    <Layout2>
       <Helmet title={'Home Page'} />
       <Header title="Home Page">Gatsby Tutorial Starter</Header>
-      <PostWrapper>
-        {edges.map(({ node }) => {
-          const { id, excerpt, frontmatter } = node;
-          const { cover, path, title, date } = frontmatter;
-          return (
-            <PostList
-              key={id}
-              cover={cover.childImageSharp.fluid}
-              path={path}
-              title={title}
-              date={date}
-              excerpt={excerpt}
-            />
-          );
-        })}
-      </PostWrapper>
-    </Layout>
+      
+      
+      
+    </Layout2>
   );
 };
 
