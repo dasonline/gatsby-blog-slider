@@ -3,10 +3,12 @@ import theme from '../../config/theme';
 
 const headroom = css`
   .headroom-wrapper {
-    position: fixed;
+    position: sticky;
     width: 100%;
     z-index: 2000;
     top: 0;
+    background-color: #343A40;
+    
   }
   .headroom {
     display: flex;

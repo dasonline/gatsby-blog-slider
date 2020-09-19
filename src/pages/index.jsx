@@ -5,6 +5,8 @@ import Helmet from 'react-helmet';
 import styled from '@emotion/styled';
 import { Header, PostList } from 'components';
 import { Layout2 } from 'layouts';
+import Img from 'gatsby-image';
+import Carousel from 'react-bootstrap/Carousel';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const PostWrapper = styled.div`
@@ -26,11 +28,28 @@ const Index = ({ data }) => {
   return (
     <Layout2>
       <Helmet title={'Home Page'} />
-      <Header title="Home Page">Gatsby Tutorial Starter</Header>
+    
+      <div className="container">
+      <Carousel className="col md-12" >
       
-      
+      <Carousel.Item >
+          <Img fluid={data.image1.childImageSharp.fluid} alt="This is the"/>
+      </Carousel.Item>
+      <Carousel.Item >
+          <Img fluid={data.image2.childImageSharp.fluid} alt="This is the"/>
+      </Carousel.Item>
+      <Carousel.Item >
+          <Img fluid={data.image3.childImageSharp.fluid} alt="This is the"/>
+      </Carousel.Item>
+      <Carousel.Item >
+          <Img fluid={data.image4.childImageSharp.fluid} alt="This is the"/>
+      </Carousel.Item>
+    
+      </Carousel>
+      </div>
       
     </Layout2>
+    
   );
 };
 
@@ -59,6 +78,34 @@ Index.propTypes = {
 
 export const query = graphql`
   query {
+    image1:file(relativePath: {eq: "1.jpg"}) {
+      childImageSharp {
+        fluid(maxWidth:1920) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    image2:file(relativePath: {eq: "2.jpg"}) {
+      childImageSharp {
+        fluid(maxWidth:1920) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    image3:file(relativePath: {eq: "3.jpg"}) {
+      childImageSharp {
+        fluid(maxWidth:1920) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    image4:file(relativePath: {eq: "4.jpg"}) {
+      childImageSharp {
+        fluid(maxWidth:1920) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
     allMarkdownRemark(
       limit: 6
       sort: { order: DESC, fields: [frontmatter___date] }
@@ -89,3 +136,4 @@ export const query = graphql`
     }
   }
 `;
+

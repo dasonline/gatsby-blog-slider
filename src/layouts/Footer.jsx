@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import { graphql, useStaticQuery } from 'gatsby';
+import Img from 'gatsby-image';
 
 const Wrapper = styled.footer`
   position: relative;
@@ -10,7 +12,7 @@ const Wrapper = styled.footer`
   font-family: ${props => props.theme.fontFamily.body};
   font-weight: 500;
   @media (max-width: ${props => props.theme.breakpoints.s}) {
-    padding-top: 7rem;
+    padding-top: 2rem;
   }
 `;
 
@@ -23,10 +25,11 @@ const Text = styled.div`
 
 const Footer = () => (
   <Wrapper>
+    
     <Text>
       <span>
-        Gatsby Tutorial Starter -{' '}
-        <a href="https://justinformentin.com">Justin Formentin</a>
+        &copy; 2020 -{' '}
+        <a href="https://andystefanekphotography.com">Andy Stefanek Photography</a>
       </span>
     </Text>
   </Wrapper>
